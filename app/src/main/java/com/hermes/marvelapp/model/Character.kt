@@ -9,20 +9,20 @@ data class CharactersApiResponse(
 
 data class CharactersData(
     val total: Int?,
-    val results: List<CharacterResult>?
+    val results: List<Character>?
 )
 
-data class CharacterResult(
+data class Character(
     val id: Int?,
     val name: String?,
     val description: String?,
     val resourceURI: String?,
-    val urls: List<CharacterResultUrl>?,
+    val urls: List<CharacterUrl>?,
     val thumbnail: CharacterThumbnail?,
     val comics: CharacterComics?
 )
 
-data class CharacterResultUrl(
+data class CharacterUrl(
     val type: String?,
     val url: String?
 )
