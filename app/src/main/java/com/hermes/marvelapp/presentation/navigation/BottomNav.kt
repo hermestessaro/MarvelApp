@@ -1,23 +1,18 @@
-package com.hermes.marvelapp.navigation
+package com.hermes.marvelapp.presentation.navigation
 
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
-import com.hermes.marvelapp.R
-import com.hermes.marvelapp.ui.theme.MarvelAppTheme
-import com.hermes.marvelapp.view.CharactersList
-import com.hermes.marvelapp.view.bottomNav.BottomNavItem
 
 @Composable
 fun BottomNav(navController: NavController) {
@@ -26,8 +21,8 @@ fun BottomNav(navController: NavController) {
         BottomNavItem.ComicList
     )
     NavigationBar(
-        containerColor = Color(R.color.purple_200),
-        contentColor = Color(R.color.black)
+        containerColor = MaterialTheme.colorScheme.primaryContainer,
+        contentColor = MaterialTheme.colorScheme.onPrimaryContainer
     ) {
         val navBackStackEntry by navController.currentBackStackEntryAsState()
         val currentRoute = navBackStackEntry?.destination?.route

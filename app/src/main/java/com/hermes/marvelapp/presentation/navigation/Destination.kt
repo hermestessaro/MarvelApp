@@ -1,4 +1,4 @@
-package com.hermes.marvelapp.navigation
+package com.hermes.marvelapp.presentation.navigation
 
 sealed class Destination(val route: String) {
     object CharacterDetail: Destination("character/{characterId}") {

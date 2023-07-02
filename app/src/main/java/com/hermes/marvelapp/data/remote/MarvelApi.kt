@@ -1,7 +1,7 @@
-package com.hermes.marvelapp.api
+package com.hermes.marvelapp.data.remote
 
-import com.hermes.marvelapp.model.CharactersApiResponse
-import com.hermes.marvelapp.model.ComicApiResponse
+import com.hermes.marvelapp.domain.CharactersApiResponse
+import com.hermes.marvelapp.domain.ComicApiResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

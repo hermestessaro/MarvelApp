@@ -1,4 +1,4 @@
-package com.hermes.marvelapp.api
+package com.hermes.marvelapp.data.remote
 
 sealed class NetworkResult<T>(
     val data: T? = null,

@@ -1,10 +1,10 @@
-package com.hermes.marvelapp.api
+package com.hermes.marvelapp.data.remote
 
 import androidx.compose.runtime.mutableStateOf
-import com.hermes.marvelapp.model.CharactersApiResponse
-import com.hermes.marvelapp.model.Character
-import com.hermes.marvelapp.model.Comic
-import com.hermes.marvelapp.model.ComicApiResponse
+import com.hermes.marvelapp.domain.CharactersApiResponse
+import com.hermes.marvelapp.domain.Character
+import com.hermes.marvelapp.domain.Comic
+import com.hermes.marvelapp.domain.ComicApiResponse
 import kotlinx.coroutines.flow.MutableStateFlow
 import retrofit2.Call
 import retrofit2.Callback

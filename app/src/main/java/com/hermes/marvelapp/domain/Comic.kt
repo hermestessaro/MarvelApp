@@ -1,4 +1,4 @@
-package com.hermes.marvelapp.model
+package com.hermes.marvelapp.domain
 
 data class ComicApiResponse(
     val code: String?,
@@ -13,13 +13,13 @@ data class ComicData(
 )
 
 data class Comic(
-    val id: Int?,
-    val title: String?,
+    val id: Int,
+    val title: String,
     val issueNumber: Double?,
     val descripton: String?,
     val urls: List<ComicUrl>,
-    val thumbnail: ComicThumbnail,
-    val characters: List<ComicCharacters>
+    val thumbnail: ComicThumbnail?,
+    val characters: ComicCharacters?
 )
 
 data class ComicUrl(

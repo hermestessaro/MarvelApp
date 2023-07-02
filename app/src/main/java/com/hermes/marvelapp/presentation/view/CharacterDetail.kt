@@ -1,4 +1,4 @@
-package com.hermes.marvelapp.view
+package com.hermes.marvelapp.presentation.view
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -12,13 +12,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import com.hermes.marvelapp.R
-import com.hermes.marvelapp.ui.theme.MarvelAppTheme
 
 @Composable
-fun ComicList() {
+fun CharacterDetail() {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -26,20 +24,12 @@ fun ComicList() {
             .wrapContentSize(Alignment.Center)
     ) {
         Text(
-            text = "Comic List Screen",
+            text = "Character Detail Screen",
             fontWeight = FontWeight.Bold,
             color = Color.White,
             modifier = Modifier.align(Alignment.CenterHorizontally),
             textAlign = TextAlign.Center,
             fontSize = 20.sp
         )
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun ComicListPreview() {
-    MarvelAppTheme {
-        ComicList()
     }
 }

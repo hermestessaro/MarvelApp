@@ -1,4 +1,4 @@
-package com.hermes.marvelapp.model
+package com.hermes.marvelapp.domain
 
 data class CharactersApiResponse(
     val code: String?,
@@ -13,8 +13,8 @@ data class CharactersData(
 )
 
 data class Character(
-    val id: Int?,
-    val name: String?,
+    val id: Int,
+    val name: String,
     val description: String?,
     val resourceURI: String?,
     val urls: List<CharacterUrl>?,

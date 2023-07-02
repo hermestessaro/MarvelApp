@@ -1,4 +1,4 @@
-package com.hermes.marvelapp.api
+package com.hermes.marvelapp.data.remote
 
 import com.hermes.marvelapp.BuildConfig
 import com.hermes.marvelapp.utils.getHash

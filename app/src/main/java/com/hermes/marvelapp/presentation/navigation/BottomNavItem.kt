@@ -1,4 +1,4 @@
-package com.hermes.marvelapp.view.bottomNav
+package com.hermes.marvelapp.presentation.navigation
 
 import com.hermes.marvelapp.R
 

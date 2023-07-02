@@ -1,15 +1,12 @@
-package com.hermes.marvelapp.navigation
+package com.hermes.marvelapp.presentation.navigation
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.hermes.marvelapp.view.CharacterDetail
-import com.hermes.marvelapp.view.CharactersList
-import com.hermes.marvelapp.view.ComicDetail
-import com.hermes.marvelapp.view.ComicList
-import com.hermes.marvelapp.view.bottomNav.BottomNavItem
+import com.hermes.marvelapp.presentation.view.CharactersList
+import com.hermes.marvelapp.presentation.view.ComicList
 
 @Composable
 fun NavGraph(navController: NavHostController, paddingValues: PaddingValues) {
