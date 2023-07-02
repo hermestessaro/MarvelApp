@@ -2,8 +2,9 @@ package com.hermes.marvelapp.data.local
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.hermes.marvelapp.utils.Constants.COMICS_TABLE
 
-@Entity
+@Entity(tableName = COMICS_TABLE)
 data class ComicEntity(
     @PrimaryKey
     val id: Int,

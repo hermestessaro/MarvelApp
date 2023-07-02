@@ -10,7 +10,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object ApiService {
-    private const val BASE_URL = "http://gateway.marvel.com/v1/public/"
+    private const val BASE_URL = "https://gateway.marvel.com/v1/public/"
     val api: MarvelApi = getRetrofit().create(MarvelApi::class.java)
 
     private fun getRetrofit(): Retrofit {

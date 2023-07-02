@@ -4,11 +4,11 @@ data class ComicApiResponse(
     val code: String?,
     val status: String?,
     val attributionText: String?,
-    val data: ComicData?
+    val data: ComicData
 )
 
 data class ComicData(
-    val total: Int?,
+    val total: Int,
     val results: List<Comic>
 )
 
@@ -17,14 +17,8 @@ data class Comic(
     val title: String,
     val issueNumber: Double?,
     val descripton: String?,
-    val urls: List<ComicUrl>,
     val thumbnail: ComicThumbnail?,
     val characters: ComicCharacters?
-)
-
-data class ComicUrl(
-    val type: String?,
-    val url: String?
 )
 
 data class  ComicThumbnail(

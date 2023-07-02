@@ -4,39 +4,34 @@ data class CharactersApiResponse(
     val code: String?,
     val status: String?,
     val attributionText: String?,
-    val data: CharactersData?
+    val data: CharactersData
 )
 
 data class CharactersData(
-    val total: Int?,
-    val results: List<Character>?
+    val total: Int,
+    val results: List<Character>
 )
 
 data class Character(
     val id: Int,
     val name: String,
-    val description: String?,
-    val resourceURI: String?,
-    val urls: List<CharacterUrl>?,
-    val thumbnail: CharacterThumbnail?,
-    val comics: CharacterComics?
-)
-
-data class CharacterUrl(
-    val type: String?,
-    val url: String?
+    val description: String,
+    val thumbnail: CharacterThumbnail,
+    val comics: CharacterComics
 )
 
 data class CharacterThumbnail(
-    val path: String?,
-    val extension: String?
-)
+    val path: String,
+    val extension: String
+) {
+    val pathSecure: String
+        get() = path.replace("http:", "https:")
+}
 
 data class CharacterComics(
     val items: List<CharacterComicsItems>?
 )
 
 data class CharacterComicsItems(
-    val resourceURI: String?,
     val name: String?
 )
