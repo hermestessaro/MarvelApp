@@ -15,4 +15,7 @@ interface CharacterDao {
 
     @Query("DELETE FROM CHARACTER_TABLE")
     suspend fun clearAll()
+
+    @Query("SELECT * FROM CHARACTER_TABLE where id = :id")
+    fun retrieveCharacter(id: Int): CharacterEntity
 }

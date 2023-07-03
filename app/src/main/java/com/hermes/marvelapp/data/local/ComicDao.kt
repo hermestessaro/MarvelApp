@@ -15,4 +15,7 @@ interface ComicDao {
 
     @Query("DELETE FROM COMICS_TABLE")
     suspend fun clearAll()
+
+    @Query("SELECT * FROM COMICS_TABLE where id = :id")
+    fun retrieveComic(id: Int): ComicEntity
 }

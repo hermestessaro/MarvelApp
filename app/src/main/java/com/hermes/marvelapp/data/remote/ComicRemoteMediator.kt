@@ -7,7 +7,6 @@ import androidx.paging.RemoteMediator
 import androidx.room.withTransaction
 import com.hermes.marvelapp.data.local.ComicEntity
 import com.hermes.marvelapp.data.local.MarvelDatabase
-import com.hermes.marvelapp.data.mappers.toCharacterEntity
 import com.hermes.marvelapp.data.mappers.toComicEntity
 import retrofit2.HttpException
 import java.io.IOException

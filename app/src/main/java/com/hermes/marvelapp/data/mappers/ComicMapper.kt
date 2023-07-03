@@ -13,10 +13,10 @@ fun Comic.toComicEntity(): ComicEntity {
         apiId = id,
         title = title,
         issueNumber = issueNumber,
-        descripton = descripton,
+        descripton = description,
         path = thumbnail.pathSecure,
         extension = thumbnail.extension,
-        characters = characters.items?.mapNotNull { it.name }?.charactersToString() ?: "No characters found"
+        characters = characters?.items?.mapNotNull { it.name }?.charactersToString() ?: "No characters found"
     )
 }
 
@@ -25,8 +25,8 @@ fun ComicEntity.toComic(): Comic {
         id = id,
         title = title,
         issueNumber = issueNumber,
-        descripton = descripton,
+        description = descripton,
         thumbnail = ComicThumbnail(path, extension),
-        characters = ComicCharacters(characters.split(", ").map{ ComicCharactersItem(it) })
+        characters = ComicCharacters(characters?.split(", ")?.map{ ComicCharactersItem(it) })
     )
 }

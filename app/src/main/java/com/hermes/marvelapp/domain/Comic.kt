@@ -16,9 +16,9 @@ data class Comic(
     val id: Int,
     val title: String,
     val issueNumber: Double,
-    val descripton: String?,
+    val description: String?,
     val thumbnail: ComicThumbnail,
-    val characters: ComicCharacters
+    val characters: ComicCharacters?
 )
 
 data class  ComicThumbnail(

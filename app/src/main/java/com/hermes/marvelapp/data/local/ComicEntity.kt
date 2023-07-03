@@ -14,5 +14,5 @@ data class ComicEntity(
     val descripton: String?,
     val path: String,
     val extension: String,
-    val characters: String
+    val characters: String?
 )
