@@ -1,5 +1,6 @@
 package com.hermes.marvelapp.presentation.navigation
 
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -21,6 +22,7 @@ fun BottomNav(navController: NavController) {
         BottomNavItem.ComicList
     )
     NavigationBar(
+        modifier = Modifier.height(80.dp),
         containerColor = MaterialTheme.colorScheme.primaryContainer,
         contentColor = MaterialTheme.colorScheme.onPrimaryContainer
     ) {

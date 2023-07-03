@@ -40,7 +40,7 @@ fun CharactersList(
             )
         } else {
             LazyColumn(
-                contentPadding = PaddingValues(horizontal = 8.dp, vertical = 8.dp),
+                contentPadding = PaddingValues(start = 8.dp, end = 8.dp, top = 8.dp, bottom = 100.dp),
             ) {
                 items(characters.itemCount) { index ->
                     val item = characters[index]
@@ -50,7 +50,9 @@ fun CharactersList(
                 }
                 item {
                     if(characters.loadState.append is LoadState.Loading) {
-                        CircularProgressIndicator()
+                        CircularProgressIndicator(
+                            modifier = Modifier.align(Alignment.BottomCenter)
+                        )
                     }
                 }
             }

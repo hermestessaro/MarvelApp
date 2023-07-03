@@ -9,6 +9,7 @@ data class CharactersApiResponse(
 
 data class CharactersData(
     val total: Int,
+    val offset: Int,
     val results: List<Character>
 )
 

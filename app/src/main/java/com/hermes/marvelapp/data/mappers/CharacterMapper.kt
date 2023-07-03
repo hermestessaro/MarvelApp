@@ -9,7 +9,8 @@ import com.hermes.marvelapp.utils.comicsToString
 
 fun Character.toCharacterEntity(): CharacterEntity {
     return CharacterEntity(
-        id = id,
+        id = 0,
+        apiId = id,
         name = name,
         description = description,
         path = thumbnail.pathSecure,
