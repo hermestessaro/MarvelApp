@@ -45,7 +45,7 @@ object AppModule {
     @Singleton
     fun provideCharacterPager(marvelDatabase: MarvelDatabase, marvelApi: MarvelApi): Pager<Int, CharacterEntity> {
         return Pager(
-            config = PagingConfig(pageSize = PAGE_SIZE, prefetchDistance = 5, enablePlaceholders = true),
+            config = PagingConfig(pageSize = PAGE_SIZE),
             remoteMediator = CharacterRemoteMediator(
                 marvelDatabase,
                 marvelApi

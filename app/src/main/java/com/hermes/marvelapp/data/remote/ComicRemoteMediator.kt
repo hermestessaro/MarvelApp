@@ -23,22 +23,18 @@ class ComicRemoteMediator(
     ): MediatorResult {
         return try {
             val loadKey = when(loadType) {
-                LoadType.REFRESH -> 1
+                LoadType.REFRESH -> 0
                 LoadType.PREPEND -> return MediatorResult.Success(
                     endOfPaginationReached = true
                 )
                 LoadType.APPEND -> {
                     val lastItem = state.lastItemOrNull()
-                    if(lastItem == null){
-                        1
-                    } else {
-                        (lastItem.id / state.config.pageSize) + 1
-                    }
+                    lastItem?.let {
+                        it.id + 1
+                    } ?: 0
                 }
             }
-            val comics = marvelApi.getAllComics(
-                offset = (loadKey * state.config.pageSize)
-            )
+            val comics = marvelApi.getAllComics(loadKey)
 
             marvelDatabase.withTransaction {
                 if(loadType == LoadType.REFRESH){

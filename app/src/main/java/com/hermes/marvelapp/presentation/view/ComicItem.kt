@@ -17,16 +17,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.hermes.marvelapp.domain.Character
-import com.hermes.marvelapp.domain.CharacterComics
-import com.hermes.marvelapp.domain.CharacterComicsItems
-import com.hermes.marvelapp.domain.CharacterThumbnail
+import com.hermes.marvelapp.domain.Comic
 
 @Composable
-fun CharacterItem(character: Character) {
+fun ComicItem(comic: Comic){
     Card(
         modifier = Modifier
             .padding(horizontal = 8.dp, vertical = 8.dp)
@@ -35,12 +31,12 @@ fun CharacterItem(character: Character) {
     ) {
         Row(
             modifier = Modifier.fillMaxWidth()
-                        .height(IntrinsicSize.Max)
-                        .padding(horizontal = 16.dp, vertical = 8.dp)
+                .height(IntrinsicSize.Max)
+                .padding(horizontal = 16.dp, vertical = 8.dp)
         ) {
             AsyncImage(
-                model = character.thumbnail.pathSecure + "." + character.thumbnail.extension,
-                contentDescription = character.name,
+                model = comic.thumbnail.pathSecure + "." + comic.thumbnail.extension,
+                contentDescription = comic.title,
                 modifier = Modifier
                     .weight(1f)
                     .height(120.dp)
@@ -53,23 +49,9 @@ fun CharacterItem(character: Character) {
                     .fillMaxHeight(),
                 verticalArrangement = Arrangement.Center
             ) {
-                Text(text = character.name)
-                Text(text = "Click to view character details")
+                Text(text = comic.title)
+                Text(text = "Click to view comic details")
             }
         }
     }
-}
-
-@Preview
-@Composable
-fun CharacterItemPreview() {
-    CharacterItem(
-        character = Character(
-            id = 1,
-            name = "Spider-Man",
-            description = "Does whatever a spider can",
-            thumbnail = CharacterThumbnail("http://i.annihil.us/u/prod/marvel/i/mg/3/80/520288b9cb581", "jpg"),
-            comics = CharacterComics(listOf(CharacterComicsItems("Amazing Fantasy 15")))
-        )
-    )
 }

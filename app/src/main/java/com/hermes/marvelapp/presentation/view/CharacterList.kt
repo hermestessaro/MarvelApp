@@ -14,9 +14,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
-import androidx.paging.compose.collectAsLazyPagingItems
 import com.hermes.marvelapp.domain.Character
-import com.hermes.marvelapp.presentation.CharacterViewModel
 
 
 @Composable

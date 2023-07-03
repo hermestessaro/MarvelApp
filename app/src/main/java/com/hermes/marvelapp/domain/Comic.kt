@@ -15,22 +15,24 @@ data class ComicData(
 data class Comic(
     val id: Int,
     val title: String,
-    val issueNumber: Double?,
+    val issueNumber: Double,
     val descripton: String?,
-    val thumbnail: ComicThumbnail?,
-    val characters: ComicCharacters?
+    val thumbnail: ComicThumbnail,
+    val characters: ComicCharacters
 )
 
 data class  ComicThumbnail(
-    val path: String?,
-    val extension: String?
-)
+    val path: String,
+    val extension: String
+) {
+    val pathSecure: String
+        get() = path.replace("http:", "https:")
+}
 
 data class ComicCharacters(
     val items: List<ComicCharactersItem>?
 )
 
 data class ComicCharactersItem(
-    val resourceURI: String?,
     val name: String?
 )

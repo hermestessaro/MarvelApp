@@ -6,11 +6,13 @@ import com.hermes.marvelapp.utils.Constants.COMICS_TABLE
 
 @Entity(tableName = COMICS_TABLE)
 data class ComicEntity(
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     val id: Int,
-    val title: String?,
-    val issueNumber: Double?,
+    val apiId: Int,
+    val title: String,
+    val issueNumber: Double,
     val descripton: String?,
-    val thumbnail: String?,
-    val characters: String?
+    val path: String,
+    val extension: String,
+    val characters: String
 )
