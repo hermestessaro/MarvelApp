@@ -1,6 +1,7 @@
 package com.hermes.marvelapp.presentation.view
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -18,26 +19,34 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import com.hermes.marvelapp.data.local.ComicEntity
 
 @Composable
-fun ComicDetail(singleComic: ComicEntity) {
+fun ComicDetail(singleComic: ComicEntity, navController: NavController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
             .padding(4.dp)
-            .padding(bottom = 42.dp)
+            .padding(bottom = 100.dp)
             .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        DetailTop(
+            navController = navController,
+            modifier = Modifier
+                .fillMaxHeight(0.2f)
+                .align(Alignment.Start)
+        )
         val url = singleComic.path + "." + singleComic.extension
         AsyncImage(
             model = url,
             contentDescription = null,
             contentScale = ContentScale.FillWidth,
             modifier = Modifier
-                .width(300.dp)
+                .width(200.dp)
+                .padding(top = 32.dp)
                 .align(Alignment.CenterHorizontally))
 
         Text(

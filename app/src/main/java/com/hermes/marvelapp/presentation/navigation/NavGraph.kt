@@ -40,7 +40,7 @@ fun NavGraph(
                 } else {
                     characterViewModel.retrieveSingleCharacter(id)
                     characterViewModel.characterRetrieved.value?.let {
-                        CharacterDetail(singleCharacter = it)
+                        CharacterDetail(singleCharacter = it, navController)
                     } ?: {
                         /*TODO*/
                     }
@@ -53,7 +53,7 @@ fun NavGraph(
                 } else {
                     comicViewModel.retrieveSingleComic(id)
                     comicViewModel.comicRetrieved.value?.let{
-                        ComicDetail(singleComic = it)
+                        ComicDetail(singleComic = it, navController)
                     } ?: {
                         /*TODO*/
                     }

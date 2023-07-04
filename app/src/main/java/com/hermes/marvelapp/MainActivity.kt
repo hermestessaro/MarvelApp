@@ -10,11 +10,12 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
+import androidx.core.view.WindowCompat
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.rememberNavController
-import com.hermes.marvelapp.presentation.viewmodel.CharacterViewModel
 import com.hermes.marvelapp.presentation.navigation.BottomNav
 import com.hermes.marvelapp.presentation.navigation.NavGraph
+import com.hermes.marvelapp.presentation.viewmodel.CharacterViewModel
 import com.hermes.marvelapp.presentation.viewmodel.ComicViewModel
 import com.hermes.marvelapp.ui.theme.MarvelAppTheme
 import dagger.hilt.android.AndroidEntryPoint

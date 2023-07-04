@@ -2,7 +2,9 @@ package com.hermes.marvelapp.presentation.view
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
@@ -20,13 +22,15 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import coil.compose.AsyncImage
 import com.hermes.marvelapp.R
 import com.hermes.marvelapp.data.local.CharacterEntity
 import com.hermes.marvelapp.utils.testCharacter
 
 @Composable
-fun CharacterDetail(singleCharacter: CharacterEntity) {
+fun CharacterDetail(singleCharacter: CharacterEntity, navController: NavController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -35,6 +39,12 @@ fun CharacterDetail(singleCharacter: CharacterEntity) {
             .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        DetailTop(
+            navController = navController,
+            modifier = Modifier
+                .fillMaxHeight(0.2f)
+                .align(Alignment.Start)
+        )
         val url = singleCharacter.path + "." + singleCharacter.extension
         AsyncImage(
             model = url,
@@ -42,6 +52,7 @@ fun CharacterDetail(singleCharacter: CharacterEntity) {
             contentScale = ContentScale.FillHeight,
             modifier = Modifier
                 .height(200.dp)
+                .padding(top = 32.dp)
                 .align(Alignment.CenterHorizontally))
 
             Text(
@@ -72,8 +83,9 @@ fun CharacterDetail(singleCharacter: CharacterEntity) {
     }
 }
 
+
 @Preview
 @Composable
-fun previewCharacterDetail(){
-    CharacterDetail(singleCharacter = testCharacter())
+fun previewCharacterDetail() {
+    CharacterDetail(singleCharacter = testCharacter(), navController = rememberNavController())
 }
