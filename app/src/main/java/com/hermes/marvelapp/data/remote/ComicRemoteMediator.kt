@@ -22,7 +22,7 @@ class ComicRemoteMediator(
     ): MediatorResult {
         return try {
             val loadKey = when(loadType) {
-                LoadType.REFRESH -> 0
+                LoadType.REFRESH -> null
                 LoadType.PREPEND -> return MediatorResult.Success(
                     endOfPaginationReached = true
                 )
@@ -38,9 +38,10 @@ class ComicRemoteMediator(
             marvelDatabase.withTransaction {
                 if(loadType == LoadType.REFRESH){
                     marvelDatabase.comicDao.clearAll()
+                } else {
+                    val comicEntities = comics.data.results.map { it.toComicEntity() }
+                    marvelDatabase.comicDao.upsertAllComics(comicEntities)
                 }
-                val comicEntities = comics.data.results.map { it.toComicEntity() }
-                marvelDatabase.comicDao.upsertAllComics(comicEntities)
             }
 
             MediatorResult.Success(

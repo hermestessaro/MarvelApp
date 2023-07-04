@@ -22,7 +22,7 @@ class CharacterRemoteMediator(
     override suspend fun load(loadType: LoadType, state: PagingState<Int, CharacterEntity>): MediatorResult {
         return try {
             val loadKey = when(loadType) {
-                LoadType.REFRESH -> 0
+                LoadType.REFRESH -> null
                 LoadType.PREPEND -> return MediatorResult.Success(
                     endOfPaginationReached = true
                 )
@@ -38,9 +38,10 @@ class CharacterRemoteMediator(
             marvelDatabase.withTransaction {
                 if(loadType == LoadType.REFRESH){
                     marvelDatabase.characterDao.clearAll()
+                } else {
+                    val characterEntities = characters.data.results.map { it.toCharacterEntity() }
+                    marvelDatabase.characterDao.upsertAllCharacters(characterEntities)
                 }
-                val characterEntities = characters.data.results.map { it.toCharacterEntity() }
-                marvelDatabase.characterDao.upsertAllCharacters(characterEntities)
             }
 
             MediatorResult.Success(

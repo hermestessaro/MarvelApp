@@ -77,7 +77,7 @@ fun ComicList(
         }
         if (comics.loadState.refresh is LoadState.Loading) {
             CircularProgressIndicator(
-                modifier = Modifier.align(Alignment.Center)
+                modifier = Modifier.align(Alignment.TopCenter)
             )
         } else {
             LazyColumn(

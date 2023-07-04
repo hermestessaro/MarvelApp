@@ -7,7 +7,7 @@ import com.hermes.marvelapp.utils.Constants.COMICS_TABLE
 @Entity(tableName = COMICS_TABLE)
 data class ComicEntity(
     @PrimaryKey(autoGenerate = true)
-    val id: Int,
+    val id: Int = 0,
     val apiId: Int,
     val title: String,
     val issueNumber: Double,

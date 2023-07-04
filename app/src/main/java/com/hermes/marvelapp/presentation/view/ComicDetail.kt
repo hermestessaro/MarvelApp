@@ -58,18 +58,6 @@ fun ComicDetail(singleComic: ComicEntity, navController: NavController) {
             modifier = Modifier.padding(8.dp),
             lineHeight = 40.sp
         )
-        singleComic.characters?.let {
-            Text(
-                text = it,
-                color = MaterialTheme.colorScheme.secondary,
-                textAlign = TextAlign.Left,
-                fontSize = 11.sp,
-                fontStyle = FontStyle.Italic,
-                modifier = Modifier.padding(8.dp),
-                lineHeight = 20.sp
-            )
-        }
-
         singleComic.descripton?.let {
             Text(
                 text = it,
@@ -77,6 +65,17 @@ fun ComicDetail(singleComic: ComicEntity, navController: NavController) {
                 textAlign = TextAlign.Left,
                 fontSize = 16.sp,
                 modifier = Modifier.padding(8.dp)
+            )
+        }
+        singleComic.characters?.let {
+            Text(
+                text = it,
+                color = MaterialTheme.colorScheme.outline,
+                textAlign = TextAlign.Left,
+                fontSize = 10.sp,
+                fontStyle = FontStyle.Italic,
+                modifier = Modifier.padding(8.dp),
+                lineHeight = 20.sp
             )
         }
     }

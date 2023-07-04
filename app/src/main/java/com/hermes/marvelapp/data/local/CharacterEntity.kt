@@ -7,7 +7,7 @@ import com.hermes.marvelapp.utils.Constants.CHARACTER_TABLE
 @Entity(tableName = CHARACTER_TABLE)
 data class CharacterEntity(
     @PrimaryKey(autoGenerate = true)
-    val id: Int,
+    val id: Int = 0,
     val apiId: Int,
     val name: String,
     val description: String,

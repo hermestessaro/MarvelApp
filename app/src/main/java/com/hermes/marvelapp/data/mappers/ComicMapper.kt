@@ -9,7 +9,6 @@ import com.hermes.marvelapp.utils.charactersToString
 
 fun Comic.toComicEntity(): ComicEntity {
     return ComicEntity(
-        id = 0,
         apiId = id,
         title = title,
         issueNumber = issueNumber,
