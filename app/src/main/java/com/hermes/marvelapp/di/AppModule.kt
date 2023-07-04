@@ -5,6 +5,7 @@ import androidx.paging.ExperimentalPagingApi
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.room.Room
+import com.hermes.marvelapp.data.connectivity.ConnectivityMonitor
 import com.hermes.marvelapp.data.local.CharacterEntity
 import com.hermes.marvelapp.data.local.ComicEntity
 import com.hermes.marvelapp.data.local.MarvelDatabase
@@ -70,5 +71,11 @@ object AppModule {
                 marvelDatabase.comicDao.pagingSource()
             }
         )
+    }
+
+    @Provides
+    @Singleton
+    fun provideConnectivityManager(@ApplicationContext context: Context): ConnectivityMonitor {
+        return ConnectivityMonitor.getInstance(context)
     }
 }

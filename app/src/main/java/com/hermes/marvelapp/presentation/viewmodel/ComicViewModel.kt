@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.Pager
 import androidx.paging.cachedIn
 import androidx.paging.map
+import com.hermes.marvelapp.data.connectivity.ConnectivityMonitor
 import com.hermes.marvelapp.data.local.ComicEntity
 import com.hermes.marvelapp.data.local.MarvelDatabase
 import com.hermes.marvelapp.data.mappers.toComic
@@ -18,8 +19,10 @@ import javax.inject.Inject
 @HiltViewModel
 class ComicViewModel @Inject constructor(
     pager: Pager<Int, ComicEntity>,
-    private val marvelDatabase: MarvelDatabase
+    private val marvelDatabase: MarvelDatabase,
+    connectivityMonitor: ConnectivityMonitor
 ): ViewModel() {
+    val networkMonitor = connectivityMonitor
     val comicPagingFlow = pager
         .flow
         .map { pagingData ->
