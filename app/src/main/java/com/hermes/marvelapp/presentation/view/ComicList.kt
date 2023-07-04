@@ -31,7 +31,7 @@ fun ComicList(
             )
         } else {
             LazyColumn(
-                contentPadding = PaddingValues(start = 8.dp, end = 8.dp, top = 8.dp, bottom = 100.dp),
+                contentPadding = PaddingValues(start = 8.dp, end = 8.dp, top = 30.dp, bottom = 100.dp),
             ) {
                 items(comics.itemCount) { index ->
                     val item = comics[index]

@@ -49,7 +49,7 @@ fun CharactersList(
             )
         } else {
             LazyColumn(
-                contentPadding = PaddingValues(start = 8.dp, end = 8.dp, top = 8.dp, bottom = 100.dp),
+                contentPadding = PaddingValues(start = 8.dp, end = 8.dp, top = 30.dp, bottom = 100.dp),
             ) {
                 items(characters.itemCount) { index ->
                     val item = characters[index]

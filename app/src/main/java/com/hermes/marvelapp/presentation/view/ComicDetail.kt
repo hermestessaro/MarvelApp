@@ -29,7 +29,7 @@ fun ComicDetail(singleComic: ComicEntity, navController: NavController) {
         modifier = Modifier
             .fillMaxSize()
             .padding(4.dp)
-            .padding(bottom = 100.dp)
+            .padding(top = 30.dp, bottom = 120.dp)
             .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {

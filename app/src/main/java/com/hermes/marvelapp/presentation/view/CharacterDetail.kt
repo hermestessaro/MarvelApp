@@ -35,7 +35,7 @@ fun CharacterDetail(singleCharacter: CharacterEntity, navController: NavControll
         modifier = Modifier
             .fillMaxSize()
             .padding(4.dp)
-            .padding(bottom = 42.dp)
+            .padding(top = 30.dp, bottom = 42.dp)
             .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
