@@ -12,7 +12,4 @@ Os possíveis erros em busca de informações são reportados utilizando Toast, 
 
 Sem internet, o app apresenta as listas desde que elas tenham sido carregadas no banco de dados em algum outro momento.
 
-Testes unitários eram algo desejado porém não foi possível realizá-los em função do tempo.
-
-
 
