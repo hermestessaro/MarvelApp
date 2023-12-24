@@ -25,22 +25,6 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object AppModule {
 
-    @Provides
-    @Singleton
-    fun provideMarvelDatabase(@ApplicationContext context: Context): MarvelDatabase {
-        return Room.databaseBuilder(
-            context,
-            MarvelDatabase::class.java,
-            "marvel.db"
-        ).build()
-    }
-
-    @Provides
-    @Singleton
-    fun provideMarvelApi(): MarvelApi {
-        return ApiService.api
-    }
-
     @OptIn(ExperimentalPagingApi::class)
     @Provides
     @Singleton
@@ -73,9 +57,5 @@ object AppModule {
         )
     }
 
-    @Provides
-    @Singleton
-    fun provideConnectivityManager(@ApplicationContext context: Context): ConnectivityMonitor {
-        return ConnectivityMonitor.getInstance(context)
-    }
+
 }
