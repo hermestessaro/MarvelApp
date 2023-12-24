@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material3.CircularProgressIndicator
@@ -96,7 +97,11 @@ fun ComicList(
                             .padding(horizontal = 8.dp, vertical = 8.dp)
                             .fillMaxWidth()
                             .clickable {
-                                navHostController.navigate(Destination.ComicDetail.createRoute(item.id))
+                                navHostController.navigate(
+                                    Destination.ComicDetail.createRoute(
+                                        item.id
+                                    )
+                                )
                             }
                         ComicItem(comic = item, modifier)
                     }

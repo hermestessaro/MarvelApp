@@ -38,7 +38,7 @@ fun ComicItem(comic: Comic, modifier: Modifier){
                 .height(IntrinsicSize.Max)
         ) {
             AsyncImage(
-                model = comic.thumbnail.pathSecure + "." + comic.thumbnail.extension,
+                model = comic.thumbnail.pathSecure + "/standard_large." + comic.thumbnail.extension,
                 contentDescription = comic.title,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier

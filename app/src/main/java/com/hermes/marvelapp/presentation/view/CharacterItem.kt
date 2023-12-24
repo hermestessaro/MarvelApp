@@ -42,7 +42,7 @@ fun CharacterItem(character: Character, modifier: Modifier) {
                         .height(IntrinsicSize.Max)
         ) {
             AsyncImage(
-                model = character.thumbnail.pathSecure + "." + character.thumbnail.extension,
+                model = character.thumbnail.pathSecure + "/standard_large." + character.thumbnail.extension,
                 contentDescription = character.name,
                 contentScale = ContentScale.FillBounds,
                 modifier = Modifier

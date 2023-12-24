@@ -1,5 +1,7 @@
 package com.hermes.marvelapp.domain
 
+import androidx.compose.runtime.Immutable
+
 data class ComicApiResponse(
     val code: String?,
     val status: String?,
@@ -12,6 +14,7 @@ data class ComicData(
     val results: List<Comic>
 )
 
+@Immutable
 data class Comic(
     val id: Int,
     val title: String,
