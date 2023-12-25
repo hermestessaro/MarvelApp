@@ -4,12 +4,16 @@ import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
@@ -46,7 +50,9 @@ fun CharactersList(
     val context = LocalContext.current
 
     LaunchedEffect(key1 = characters.loadState) {
-        if (characters.loadState.refresh is LoadState.Error) {
+        if ((characters.loadState.refresh is LoadState.Error) &&
+            (networkStatus.value != ConnectivityObservable.Status.Unavailable)
+        ) {
             Toast.makeText(
                 context,
                 "An error occured! Please try again later.",
@@ -54,14 +60,12 @@ fun CharactersList(
             ).show()
         }
     }
-    Box(
+    Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(top = 50.dp)
+            .padding(top = 30.dp)
     ) {
-        var listPaddingTop = 0.dp
         if (networkStatus.value == ConnectivityObservable.Status.Unavailable) {
-            listPaddingTop = 40.dp
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -78,16 +82,16 @@ fun CharactersList(
         }
         if (characters.loadState.refresh is LoadState.Loading) {
             CircularProgressIndicator(
-                modifier = Modifier.align(Alignment.TopCenter)
+                modifier = Modifier.align(Alignment.CenterHorizontally)
             )
         } else {
             LazyColumn(
                 contentPadding = PaddingValues(
                     start = 8.dp,
                     end = 8.dp,
-                    top = listPaddingTop,
+                    top = 8.dp,
                     bottom = 100.dp
-                ),
+                )
             ) {
                 items(characters.itemCount) { index ->
                     val item = characters[index]
@@ -109,7 +113,7 @@ fun CharactersList(
                 item {
                     if (characters.loadState.append is LoadState.Loading) {
                         CircularProgressIndicator(
-                            modifier = Modifier.align(Alignment.BottomCenter)
+                            modifier = Modifier.align(Alignment.CenterHorizontally)
                         )
                     }
                 }

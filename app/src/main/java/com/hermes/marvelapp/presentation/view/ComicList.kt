@@ -4,6 +4,7 @@ import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -46,22 +47,22 @@ fun ComicList(
     val context = LocalContext.current
 
     LaunchedEffect(key1 = comics.loadState) {
-        if (comics.loadState.refresh is LoadState.Error) {
+        if ((comics.loadState.refresh is LoadState.Error) &&
+            (networkStatus.value != ConnectivityObservable.Status.Unavailable)
+        ) {
             Toast.makeText(
                 context,
-                "An error occurred! Please try again later.",
+                "An error occured! Please try again later.",
                 Toast.LENGTH_LONG
             ).show()
         }
     }
-    Box(
+    Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(top = 50.dp)
+            .padding(top = 30.dp)
     ) {
-        var listPaddingTop = 0.dp
         if (networkStatus.value == ConnectivityObservable.Status.Unavailable) {
-            listPaddingTop = 40.dp
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -78,14 +79,14 @@ fun ComicList(
         }
         if (comics.loadState.refresh is LoadState.Loading) {
             CircularProgressIndicator(
-                modifier = Modifier.align(Alignment.TopCenter)
+                modifier = Modifier.align(Alignment.CenterHorizontally)
             )
         } else {
             LazyColumn(
                 contentPadding = PaddingValues(
                     start = 8.dp,
                     end = 8.dp,
-                    top = listPaddingTop,
+                    top = 8.dp,
                     bottom = 100.dp
                 ),
             ) {
@@ -109,7 +110,7 @@ fun ComicList(
                 item {
                     if (comics.loadState.append is LoadState.Loading) {
                         CircularProgressIndicator(
-                            modifier = Modifier.align(Alignment.BottomCenter)
+                            modifier = Modifier.align(Alignment.CenterHorizontally)
                         )
                     }
                 }
